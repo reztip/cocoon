@@ -6,18 +6,30 @@ import Image from '../components/image'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
+    <h2>Post something</h2>
+
+    <div>
+      <form action="">
+      <textarea rows="2" cols="50" name="usrtxt" wrap="hard">
+      Type your comment
+      </textarea>
+      <br/>
+      <input type="submit" />
+    </form>
+
+    <h4>Contact Us</h4>
+    <form
+      name = "contact"
+      method ="post"
+      data-netifly="true"
+      data-netifly-honeypot="bot-field">
+      <input name = "name" placeholder ="type something" type="text"/>
+      <button>Send</button>
+      </form>
     </div>
-    {data.cocoon.users.map(user => (
-      <>
-        <p>{`${user.first_name} ${user.last_name}`}</p>
-        <p>email: {user.email}</p>
-      </>
-    ))}
+
+
+
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
