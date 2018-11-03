@@ -4,6 +4,8 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 const IndexPage = ({ data }) => (
   <Layout>
     <h1>Hi people</h1>
@@ -19,6 +21,7 @@ const IndexPage = ({ data }) => (
       </>
     ))}
     <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/signup">Go to page 2</Link>
   </Layout>
 )
 
