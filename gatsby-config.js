@@ -1,3 +1,6 @@
+const fetch = require('node-fetch')
+const { createHttpLink } = require('apollo-link-http')
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -26,5 +29,21 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'HASURA',
+        // This is field under which it's accessible
+        fieldName: 'cocoon',
+        // Url to query from
+        createLink: () =>
+          createHttpLink({
+            uri: 'https://cocoon-app.herokuapp.com/v1alpha1/graphql',
+            headers: {},
+            fetch,
+          }),
+      },
+    },
   ],
 }
