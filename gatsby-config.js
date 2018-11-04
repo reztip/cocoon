@@ -3,7 +3,7 @@ const { createHttpLink } = require('apollo-link-http')
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Cocoon',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
