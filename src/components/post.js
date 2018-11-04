@@ -1,45 +1,40 @@
 import React from 'react'
-import {
-  Box,
-  Container,
-  Columns,
-  Image,
-  Content,
-} from 'react-bulma-components/full'
 
 const Post = ({ posts }) => {
   return (
-    <Container breakpoint="fullhd">
-      <Columns>
+    <div className="container is-fullhd">
+      <div className="columns">
         {posts.map((post, idx) => (
-          <Columns.Column key={post.id || idx} size={12}>
-            <Box
+          <div className="column" key={post.id || idx} size={12}>
+            <div
+              className="box"
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}
             >
-              <Image
+              <img
+                className="image"
                 src="https://placeimg.com/128/128/any"
                 size={128}
                 style={{ margin: '0' }}
               />
               <div style={{ width: '75%' }}>
-                <Content>
+                <div className="content">
                   <h2>{post.title}</h2>
                   <p>
                     {post.subtitle.length > 240
                       ? `${post.subtitle.slice(0, 240)}...`
                       : post.subtitle}
                   </p>
-                </Content>
+                </div>
               </div>
-            </Box>
-          </Columns.Column>
+            </div>
+          </div>
         ))}
-      </Columns>
-    </Container>
+      </div>
+    </div>
   )
 }
 

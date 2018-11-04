@@ -20,7 +20,6 @@
     "node-gyp": "^3.8.0",
     "react": "^16.5.1",
     "react-apollo": "^2.2.4",
-    "react-bulma-components": "^2.2.0",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "reactstrap": "^6.5.0"
