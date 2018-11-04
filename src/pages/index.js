@@ -1,39 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
+import Post from '../components/post'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <h2>Post something</h2>
-
-    <div>
-      <form action="">
-      <textarea rows="2" cols="50" name="usrtxt" wrap="hard">
-      Type your comment
-      </textarea>
-      <br/>
-      <input type="submit" />
-    </form>
-
-    <h4>Contact Us</h4>
-    <form
-      name = "contact"
-      method ="post"
-      data-netifly="true"
-      data-netifly-honeypot="bot-field">
-      <input name = "name" placeholder ="type something" type="text"/>
-      <button>Send</button>
-      </form>
-    </div>
-
-
-
-    <Link to="/page-2/">Go to page 2</Link>
-    <Link to="/signup">Go to page 2</Link>
+    <Post posts={data.cocoon.Post} />
   </Layout>
 )
 
@@ -42,11 +16,12 @@ export default IndexPage
 export const query = graphql`
   query IndexPageQuery {
     cocoon {
-      users {
-        id
-        first_name
-        last_name
-        email
+      Post {
+        title
+        subtitle
+        add_date
+        user
+        media_id
       }
     }
   }
