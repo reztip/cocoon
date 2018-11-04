@@ -1,35 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import { Container, Heading, Navbar } from 'react-bulma-components'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  Container,
+} from 'reactstrap'
 
-const Header = data => (
-  <Navbar style={{ margin: '0 0 2em' }}>
-    <Container>
-      <Navbar.Brand>
-        <Navbar.Item renderAs="div">
-          <Heading size={1}>
-            <Link to="/" style={{ color: '#000000' }}>
-              {data.siteTitle}
-            </Link>
-          </Heading>
-        </Navbar.Item>
-      </Navbar.Brand>
-      <Navbar.Menu>
-        <Navbar.Container position="end">
-          <Navbar.Item renderAs="div">
-            <Link to="/signup" style={{ color: '#000000' }}>
-              Sign Up
-            </Link>
-          </Navbar.Item>
-          <Navbar.Item renderAs="div">
-            <Link to="/postForm" style={{ color: '#000000' }}>
-              Post
-            </Link>
-          </Navbar.Item>
-        </Navbar.Container>
-      </Navbar.Menu>
-    </Container>
-  </Navbar>
-)
+class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.toggle = this.toggle.bind(this)
+    this.state = {
+      isOpen: false,
+    }
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar className="mb-3" color="light" light expand="md">
+          <Container>
+            <NavbarBrand href="/">Cocoon</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <Link to="/signup">Signup</Link>
+                </NavItem>
+                <NavItem className="ml-5">
+                  <Link to="/postForm">Create a New Post</Link>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </div>
+    )
+  }
+}
 
 export default Header
